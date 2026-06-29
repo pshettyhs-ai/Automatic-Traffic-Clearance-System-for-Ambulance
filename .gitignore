@@ -1,69 +1,43 @@
-# Prerequisites
-*.d
+# --- Python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Linker files
-*.ilk
-
-# Debugger Files
-*.pdb
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
-
-# Build directories
+# --- Node ---
+node_modules/
+dist/
 build/
-Build/
-build-*/
+.vite/
+npm-debug.log*
 
-# CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-install_manifest.txt
-compile_commands.json
+# --- Env / secrets ---
+.env
+.env.local
+backend/.env
+dashboard/.env
+firmware/pico_firmware/config_local.py
 
-# Temporary files
-*.tmp
-*.log
-*.bak
+# --- Databases / runtime data ---
+backend/database/*.db
+backend/database/*.db-journal
+backend/database/*.db-wal
+
+# --- ML artifacts ---
+ai_model/dataset/images/
+ai_model/dataset/labels/
+ai_model/model_weights/runs/
+ai_model/model_weights/*.pt
+ai_model/model_weights/*.onnx
+ai_model/evaluation/evidence/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
 *.swp
 
-# vcpkg
-vcpkg_installed/
-
-# debug information files
-*.dwo
-
-# test output & cache
-Testing/
-.cache/
+# --- Logs ---
+*.log
