@@ -1,0 +1,111 @@
+<svg viewBox="0 0 1180 800" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#334155"/>
+    </marker>
+  </defs>
+  <rect width="1180" height="800" fill="#ffffff"/>
+  <text x="590" y="32" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">Pico WH Wiring &amp; Validated GPIO Pin Map</text>
+  <text x="590" y="53" text-anchor="middle" font-size="12.5" fill="#64748b">Matches the pin assignments actually used in the field-tested MicroPython firmware (see firmware/pico_firmware)</text>
+
+  <!-- Pico board -->
+  <rect x="460" y="90" width="260" height="430" rx="10" fill="#0f766e" opacity="0.08" stroke="#0f766e" stroke-width="2"/>
+  <text x="590" y="116" text-anchor="middle" font-size="14" font-weight="700" fill="#0f766e">Raspberry Pi Pico WH</text>
+  <rect x="555" y="270" width="70" height="90" rx="6" fill="#0f766e"/>
+  <text x="590" y="320" text-anchor="middle" font-size="10" fill="#ffffff">RP2040</text>
+
+  <!-- left pins -->
+  <g font-size="11.5">
+    <!-- I2C -->
+    <rect x="470" y="140" width="60" height="22" fill="#ffffff" stroke="#7c3aed"/><text x="500" y="155" text-anchor="middle" fill="#5b21b6" font-weight="600">GP0</text>
+    <rect x="470" y="166" width="60" height="22" fill="#ffffff" stroke="#7c3aed"/><text x="500" y="181" text-anchor="middle" fill="#5b21b6" font-weight="600">GP1</text>
+    <!-- Green x4 -->
+    <rect x="470" y="200" width="60" height="22" fill="#ffffff" stroke="#16a34a"/><text x="500" y="215" text-anchor="middle" fill="#15803d" font-weight="600">GP2</text>
+    <rect x="470" y="226" width="60" height="22" fill="#ffffff" stroke="#16a34a"/><text x="500" y="241" text-anchor="middle" fill="#15803d" font-weight="600">GP3</text>
+    <rect x="470" y="252" width="60" height="22" fill="#ffffff" stroke="#16a34a"/><text x="500" y="267" text-anchor="middle" fill="#15803d" font-weight="600">GP4</text>
+    <rect x="470" y="278" width="60" height="22" fill="#ffffff" stroke="#16a34a"/><text x="500" y="293" text-anchor="middle" fill="#15803d" font-weight="600">GP5</text>
+    <!-- IR x4 -->
+    <rect x="470" y="312" width="60" height="22" fill="#ffffff" stroke="#0891b2"/><text x="500" y="327" text-anchor="middle" fill="#0e7490" font-weight="600">GP6</text>
+    <rect x="470" y="338" width="60" height="22" fill="#ffffff" stroke="#0891b2"/><text x="500" y="353" text-anchor="middle" fill="#0e7490" font-weight="600">GP7</text>
+    <rect x="470" y="364" width="60" height="22" fill="#ffffff" stroke="#0891b2"/><text x="500" y="379" text-anchor="middle" fill="#0e7490" font-weight="600">GP8</text>
+    <rect x="470" y="390" width="60" height="22" fill="#ffffff" stroke="#0891b2"/><text x="500" y="405" text-anchor="middle" fill="#0e7490" font-weight="600">GP9</text>
+  </g>
+
+  <!-- right pins -->
+  <g font-size="11.5">
+    <!-- Red x4 -->
+    <rect x="650" y="200" width="60" height="22" fill="#ffffff" stroke="#dc2626"/><text x="680" y="215" text-anchor="middle" fill="#b91c1c" font-weight="600">GP10</text>
+    <rect x="650" y="226" width="60" height="22" fill="#ffffff" stroke="#dc2626"/><text x="680" y="241" text-anchor="middle" fill="#b91c1c" font-weight="600">GP11</text>
+    <rect x="650" y="252" width="60" height="22" fill="#ffffff" stroke="#dc2626"/><text x="680" y="267" text-anchor="middle" fill="#b91c1c" font-weight="600">GP12</text>
+    <rect x="650" y="278" width="60" height="22" fill="#ffffff" stroke="#dc2626"/><text x="680" y="293" text-anchor="middle" fill="#b91c1c" font-weight="600">GP13</text>
+    <!-- Yellow x4 -->
+    <rect x="650" y="312" width="60" height="22" fill="#ffffff" stroke="#ca8a04"/><text x="680" y="327" text-anchor="middle" fill="#854d0e" font-weight="600">GP14</text>
+    <rect x="650" y="338" width="60" height="22" fill="#ffffff" stroke="#ca8a04"/><text x="680" y="353" text-anchor="middle" fill="#854d0e" font-weight="600">GP15</text>
+    <rect x="650" y="364" width="60" height="22" fill="#ffffff" stroke="#ca8a04"/><text x="680" y="379" text-anchor="middle" fill="#854d0e" font-weight="600">GP16</text>
+    <rect x="650" y="390" width="60" height="22" fill="#ffffff" stroke="#ca8a04"/><text x="680" y="405" text-anchor="middle" fill="#854d0e" font-weight="600">GP17</text>
+    <!-- Buzzer -->
+    <rect x="650" y="424" width="60" height="22" fill="#ffffff" stroke="#475569"/><text x="680" y="439" text-anchor="middle" fill="#334155" font-weight="600">GP21</text>
+  </g>
+
+  <!-- Left labels boxes -->
+  <rect x="40" y="135" width="380" height="58" rx="8" fill="#f5f3ff" stroke="#7c3aed"/>
+  <text x="60" y="155" font-size="12.5" font-weight="700" fill="#5b21b6">I2C0 (SDA/SCL) → PCA9548A Mux (0x70)</text>
+  <text x="60" y="172" font-size="11" fill="#5b21b6">→ 4× SSD1306 OLED (0x3C), channels 0–3, 100kHz</text>
+  <text x="60" y="187" font-size="10.5" fill="#7c3aed" font-style="italic">4.7kΩ pull-ups on SDA/SCL</text>
+
+  <rect x="40" y="200" width="380" height="100" rx="8" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="60" y="220" font-size="12.5" font-weight="700" fill="#15803d">GP2–GP5 → Relay IN1–IN4 → GREEN LEDs</text>
+  <text x="60" y="238" font-size="11" fill="#166534">Lane 1 (N)=GP2, Lane 2 (E)=GP3,</text>
+  <text x="60" y="254" font-size="11" fill="#166534">Lane 3 (S)=GP4, Lane 4 (W)=GP5</text>
+  <text x="60" y="272" font-size="10.5" fill="#16a34a" font-style="italic">Active-HIGH GPIO → opto-isolated relay → 12V array</text>
+  <text x="60" y="288" font-size="10.5" fill="#16a34a" font-style="italic">220Ω series limiting on the LED side of the relay</text>
+
+  <rect x="40" y="312" width="380" height="100" rx="8" fill="#ecfeff" stroke="#0891b2"/>
+  <text x="60" y="332" font-size="12.5" font-weight="700" fill="#0e7490">GP6–GP9 → IR Break-Beam Sensors</text>
+  <text x="60" y="350" font-size="11" fill="#0e7490">Lane 1=GP6, Lane 2=GP7, Lane 3=GP8, Lane 4=GP9</text>
+  <text x="60" y="368" font-size="10.5" fill="#0891b2" font-style="italic">Digital IN, internal pull-down, active-HIGH on occupancy</text>
+  <text x="60" y="386" font-size="10.5" fill="#0891b2" font-style="italic">Used by handle_ir_extend() for green-time extension</text>
+  <text x="60" y="402" font-size="10.5" fill="#0891b2" font-style="italic">(GREEN_EXTENSION_S, applied once per green phase)</text>
+
+  <!-- Right label boxes -->
+  <rect x="760" y="200" width="380" height="100" rx="8" fill="#fef2f2" stroke="#dc2626"/>
+  <text x="780" y="220" font-size="12.5" font-weight="700" fill="#b91c1c">GP10–GP13 → Relay IN5–IN8 → RED LEDs</text>
+  <text x="780" y="238" font-size="11" fill="#991b1b">Lane 1=GP10, Lane 2=GP11,</text>
+  <text x="780" y="254" font-size="11" fill="#991b1b">Lane 3=GP12, Lane 4=GP13</text>
+  <text x="780" y="272" font-size="10.5" fill="#dc2626" font-style="italic">all_red() drives these HIGH as the safe default</text>
+  <text x="780" y="288" font-size="10.5" fill="#dc2626" font-style="italic">state on boot, fault, and Wi-Fi/MQTT loss</text>
+
+  <rect x="760" y="312" width="380" height="100" rx="8" fill="#fffbeb" stroke="#ca8a04"/>
+  <text x="780" y="332" font-size="12.5" font-weight="700" fill="#854d0e">GP14–GP17 → Relay IN9–IN12 → YELLOW LEDs</text>
+  <text x="780" y="350" font-size="11" fill="#854d0e">Lane 1=GP14, Lane 2=GP15,</text>
+  <text x="780" y="366" font-size="11" fill="#854d0e">Lane 3=GP16, Lane 4=GP17</text>
+  <text x="780" y="384" font-size="10.5" fill="#ca8a04" font-style="italic">Added in this revision — original report listed a 3-LED</text>
+  <text x="780" y="400" font-size="10.5" fill="#ca8a04" font-style="italic">signal head but the sample firmware never drove a yellow phase</text>
+
+  <rect x="760" y="424" width="380" height="60" rx="8" fill="#f8fafc" stroke="#475569"/>
+  <text x="780" y="444" font-size="12.5" font-weight="700" fill="#334155">GP21 → ESP8266 trigger line</text>
+  <text x="780" y="462" font-size="10.5" fill="#475569" font-style="italic">Simple digital alert line; ESP8266 also independently</text>
+  <text x="780" y="476" font-size="10.5" fill="#475569" font-style="italic">subscribes to MQTT for the buzzer pattern</text>
+
+  <!-- Connector lines -->
+  <line x1="420" y1="164" x2="468" y2="151" stroke="#7c3aed" stroke-width="1.5"/>
+  <line x1="420" y1="250" x2="468" y2="225" stroke="#16a34a" stroke-width="1.5"/>
+  <line x1="420" y1="362" x2="468" y2="345" stroke="#0891b2" stroke-width="1.5"/>
+  <line x1="760" y1="250" x2="712" y2="225" stroke="#dc2626" stroke-width="1.5"/>
+  <line x1="760" y1="362" x2="712" y2="345" stroke="#ca8a04" stroke-width="1.5"/>
+  <line x1="760" y1="454" x2="712" y2="435" stroke="#475569" stroke-width="1.5"/>
+
+  <!-- Power -->
+  <rect x="460" y="540" width="260" height="60" rx="8" fill="#f8fafc" stroke="#475569" stroke-dasharray="5,3"/>
+  <text x="590" y="563" text-anchor="middle" font-size="12.5" font-weight="700" fill="#334155">VSYS ← 5V regulated (USB-C / barrel via diode)</text>
+  <text x="590" y="581" text-anchor="middle" font-size="10.5" fill="#64748b">GND common across Pico, relay module, OLED mux, IR sensors</text>
+
+  <!-- Caption -->
+  <rect x="40" y="630" width="1100" height="135" rx="10" fill="#fafafa" stroke="#cbd5e1"/>
+  <text x="60" y="654" font-size="13" font-weight="700" fill="#0f172a">Why this differs from the original report's Fig 2.3:</text>
+  <text x="60" y="676" font-size="11.5" fill="#334155">1. The original circuit diagram listed GP17 and GP15 twice across two different signal groups — an unbuildable conflict. This map is taken directly from the</text>
+  <text x="60" y="692" font-size="11.5" fill="#334155">   validated firmware (firmware/pico_firmware), so every pin appears exactly once.</text>
+  <text x="60" y="710" font-size="11.5" fill="#334155">2. The PLCamera module is removed from this circuit entirely — vision runs on the Pi 4B (see System_Architecture.svg), not on the Pico.</text>
+  <text x="60" y="728" font-size="11.5" fill="#334155">3. Yellow-phase GPIOs (GP14–17) are added so the 3-colour signal heads specified in the BOM are fully drivable, closing a gap in the original firmware.</text>
+  <text x="60" y="746" font-size="11.5" fill="#334155">4. ESP8266 is wired as a simple alert/buzzer peripheral, not a redundant Wi-Fi path — the Pico WH's onboard radio handles all MQTT/network traffic.</text>
+</svg>

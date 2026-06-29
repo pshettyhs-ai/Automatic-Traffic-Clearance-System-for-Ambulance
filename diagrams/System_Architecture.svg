@@ -1,0 +1,142 @@
+<svg viewBox="0 0 1240 860" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#475569"/>
+    </marker>
+    <linearGradient id="edgeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eff6ff"/><stop offset="1" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="commGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fef9ec"/><stop offset="1" stop-color="#fde9c8"/>
+    </linearGradient>
+    <linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0fdf4"/><stop offset="1" stop-color="#dcfce7"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1240" height="860" fill="#ffffff"/>
+  <text x="620" y="38" text-anchor="middle" font-size="26" font-weight="700" fill="#0f172a">Traffic Clearance System — System Architecture (3-Tier)</text>
+  <text x="620" y="62" text-anchor="middle" font-size="14" fill="#64748b">Edge AI detection (Pi 4B) → MQTT/REST/WebSocket communication → Cloud backend &amp; dashboard</text>
+
+  <!-- TIER 1 : EDGE -->
+  <rect x="30" y="95" width="1180" height="270" rx="14" fill="url(#edgeGrad)" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="55" y="122" font-size="16" font-weight="700" fill="#1d4ed8">TIER 1 — EDGE LAYER (at the intersection)</text>
+
+  <!-- Camera -->
+  <rect x="60" y="150" width="190" height="80" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="155" y="180" text-anchor="middle" font-size="14" font-weight="600" fill="#0f172a">PI Camera Module</text>
+  <text x="155" y="198" text-anchor="middle" font-size="11.5" fill="#475569">IMX219 8MP · CSI interface</text>
+  <text x="155" y="214" text-anchor="middle" font-size="11.5" fill="#475569">62.2° FoV, 3.5m mount</text>
+
+  <!-- Pi4 box -->
+  <rect x="300" y="150" width="260" height="200" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="430" y="176" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f172a">Raspberry Pi 4B (4GB)</text>
+  <text x="430" y="193" text-anchor="middle" font-size="11.5" fill="#1d4ed8" font-weight="600">Edge AI Inference Node</text>
+  <line x1="318" y1="202" x2="542" y2="202" stroke="#cbd5e1"/>
+  <text x="318" y="220" font-size="11.5" fill="#334155">• OpenCV frame capture/preproc</text>
+  <text x="318" y="237" font-size="11.5" fill="#334155">• YOLOv8n ambulance detector</text>
+  <text x="318" y="254" font-size="11.5" fill="#334155">• Multi-frame + confidence validation</text>
+  <text x="318" y="271" font-size="11.5" fill="#334155">• Evidence capture (image snapshot)</text>
+  <text x="318" y="288" font-size="11.5" fill="#334155">• MQTT publisher (emergency events)</text>
+  <text x="318" y="305" font-size="11.5" fill="#334155">• REST client (status/heartbeat)</text>
+  <text x="318" y="328" font-size="11" fill="#64748b" font-style="italic">Runs entirely on-device — no</text>
+  <text x="318" y="343" font-size="11" fill="#64748b" font-style="italic">cloud round-trip for detection</text>
+
+  <!-- Pico WH box -->
+  <rect x="610" y="150" width="260" height="200" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="740" y="176" text-anchor="middle" font-size="14.5" font-weight="700" fill="#0f172a">Raspberry Pi Pico WH</text>
+  <text x="740" y="193" text-anchor="middle" font-size="11.5" fill="#1d4ed8" font-weight="600">Real-Time Signal Controller</text>
+  <line x1="628" y1="202" x2="852" y2="202" stroke="#cbd5e1"/>
+  <text x="628" y="220" font-size="11.5" fill="#334155">• MQTT subscriber (emergency cmd)</text>
+  <text x="628" y="237" font-size="11.5" fill="#334155">• Deterministic traffic light FSM</text>
+  <text x="628" y="254" font-size="11.5" fill="#334155">• Relay-driven RGB LED arrays ×4</text>
+  <text x="628" y="271" font-size="11.5" fill="#334155">• 4× OLED via PCA9548A I2C mux</text>
+  <text x="628" y="288" font-size="11.5" fill="#334155">• IR lane-occupancy sensing</text>
+  <text x="628" y="305" font-size="11.5" fill="#334155">• Buzzer / acoustic alert trigger</text>
+  <text x="628" y="328" font-size="11" fill="#64748b" font-style="italic">Hard-real-time loop, independent</text>
+  <text x="628" y="343" font-size="11" fill="#64748b" font-style="italic">of network/cloud availability</text>
+
+  <!-- Field hardware -->
+  <rect x="910" y="150" width="270" height="200" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="1045" y="176" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Field Hardware</text>
+  <text x="930" y="200" font-size="11.5" fill="#334155">• 4× RGB LED Signal Heads</text>
+  <text x="930" y="220" font-size="11.5" fill="#334155">• 4× 128×64 OLED (per lane)</text>
+  <text x="930" y="240" font-size="11.5" fill="#334155">• 4-channel Relay Module</text>
+  <text x="930" y="260" font-size="11.5" fill="#334155">• 4× IR Occupancy Sensors</text>
+  <text x="930" y="280" font-size="11.5" fill="#334155">• Buzzer (ESP8266 acoustic node)</text>
+  <text x="930" y="300" font-size="11.5" fill="#334155">• 5V/12V Regulated PSU + UPS</text>
+
+  <!-- Edge internal arrows -->
+  <line x1="250" y1="190" x2="298" y2="190" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="220" x2="608" y2="220" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="584" y="212" text-anchor="middle" font-size="10" fill="#64748b">MQTT</text>
+  <line x1="870" y1="250" x2="908" y2="250" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- TIER 2 : COMMUNICATION -->
+  <rect x="30" y="390" width="1180" height="130" rx="14" fill="url(#commGrad)" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="55" y="416" font-size="16" font-weight="700" fill="#b45309">TIER 2 — COMMUNICATION LAYER</text>
+
+  <rect x="80" y="435" width="280" height="65" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="220" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">MQTT Broker (Mosquitto)</text>
+  <text x="220" y="476" text-anchor="middle" font-size="11" fill="#475569">Pub/Sub · QoS 1 · low bandwidth</text>
+
+  <rect x="400" y="435" width="240" height="65" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="520" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">REST API (HTTPS)</text>
+  <text x="520" y="476" text-anchor="middle" font-size="11" fill="#475569">config, manual override, history</text>
+
+  <rect x="680" y="435" width="240" height="65" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5"/>
+  <text x="800" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">WebSocket (Socket.IO)</text>
+  <text x="800" y="476" text-anchor="middle" font-size="11" fill="#475569">live dashboard push updates</text>
+
+  <rect x="960" y="435" width="200" height="65" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="1060" y="458" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0f172a">TLS + Token Auth</text>
+  <text x="1060" y="476" text-anchor="middle" font-size="10.5" fill="#475569">cross-cutting security</text>
+
+  <line x1="430" y1="350" x2="220" y2="433" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="740" y1="350" x2="220" y2="433" stroke="#475569" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <line x1="430" y1="350" x2="800" y2="433" stroke="#475569" stroke-width="1" stroke-dasharray="2,3" opacity="0.4"/>
+
+  <!-- TIER 3 : CLOUD -->
+  <rect x="30" y="545" width="1180" height="260" rx="14" fill="url(#cloudGrad)" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="55" y="572" font-size="16" font-weight="700" fill="#15803d">TIER 3 — CLOUD / SERVER LAYER</text>
+
+  <rect x="60" y="600" width="280" height="180" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="200" y="626" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Node.js Backend</text>
+  <text x="80" y="650" font-size="11.5" fill="#334155">• Express REST API</text>
+  <text x="80" y="668" font-size="11.5" fill="#334155">• MQTT→WS bridge service</text>
+  <text x="80" y="686" font-size="11.5" fill="#334155">• Socket.IO server</text>
+  <text x="80" y="704" font-size="11.5" fill="#334155">• Auth (JWT) &amp; rate limiting</text>
+  <text x="80" y="722" font-size="11.5" fill="#334155">• Event &amp; analytics service</text>
+  <text x="80" y="745" font-size="11" fill="#64748b" font-style="italic">Dockerized · PM2 / systemd</text>
+
+  <rect x="380" y="600" width="260" height="180" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="510" y="626" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">SQLite / PostgreSQL</text>
+  <text x="400" y="650" font-size="11.5" fill="#334155">• emergency_events</text>
+  <text x="400" y="668" font-size="11.5" fill="#334155">• signal_cycles</text>
+  <text x="400" y="686" font-size="11.5" fill="#334155">• system_health</text>
+  <text x="400" y="704" font-size="11.5" fill="#334155">• detection_log (+evidence path)</text>
+  <text x="400" y="722" font-size="11.5" fill="#334155">• users / audit_trail</text>
+  <text x="400" y="745" font-size="11" fill="#64748b" font-style="italic">SQLite for pilot · Postgres for scale</text>
+
+  <rect x="680" y="600" width="280" height="180" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5"/>
+  <text x="820" y="626" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">React Dashboard</text>
+  <text x="700" y="650" font-size="11.5" fill="#334155">• Live camera + detection overlay</text>
+  <text x="700" y="668" font-size="11.5" fill="#334155">• Signal status &amp; countdown view</text>
+  <text x="700" y="686" font-size="11.5" fill="#334155">• Emergency event timeline</text>
+  <text x="700" y="704" font-size="11.5" fill="#334155">• Analytics (Chart.js)</text>
+  <text x="700" y="722" font-size="11.5" fill="#334155">• Manual override controls</text>
+  <text x="700" y="745" font-size="11" fill="#64748b" font-style="italic">Vite + React 18 + Redux Toolkit</text>
+
+  <rect x="1000" y="600" width="160" height="180" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="1080" y="626" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Docker Compose</text>
+  <text x="1015" y="650" font-size="11" fill="#334155">backend</text>
+  <text x="1015" y="668" font-size="11" fill="#334155">mosquitto</text>
+  <text x="1015" y="686" font-size="11" fill="#334155">postgres</text>
+  <text x="1015" y="704" font-size="11" fill="#334155">dashboard (nginx)</text>
+
+  <line x1="200" y1="780" x2="200" y2="600" stroke="none"/>
+  <line x1="340" y1="660" x2="378" y2="660" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="640" y1="660" x2="678" y2="660" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="620" y="828" text-anchor="middle" font-size="11.5" fill="#94a3b8">Fixes original report ambiguity: clearly separates which board runs CV (Pi 4B) vs. real-time GPIO control (Pico WH); adds MQTT + WebSocket alongside REST.</text>
+</svg>
